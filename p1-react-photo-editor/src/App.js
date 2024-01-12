@@ -1,8 +1,9 @@
-import myImage from './old-rusty-fishing-boat-slope-along-shore-lake.jpg'
 import './App.css'
 import {useState} from "react"
+import ImageSetter from "./components/ImageSetter";
 
 function App() {
+  const [image, setImage] = useState("https://images.squarespace-cdn.com/content/v1/56db4f32ab48defc356eb8f1/1603647964932-72QW7W9ZJSDJQJ4BS9YZ/Moraine+xxl+signed+v4.jpg?format=1000w")
   const [brightness, setBrightness] = useState({
     name: 'Brightness',
     property: 'brightness',
@@ -94,9 +95,10 @@ function App() {
   return (
     <div className="App">
       <div className='container'>
+        <ImageSetter setImage={setImage} />
         <div className='image-container'>
           <img
-              src={myImage}
+              src={image}
               alt="old rusty fishing boat slope along shore lake"
               style={{
               filter: `
