@@ -93,21 +93,51 @@ function App() {
 
   return (
     <div className="App">
-      <img src={myImage} alt="old rusty fishing boat slope along shore lake" style={{
-        filter: `
-          brightness(${brightness.value}${brightness.unit})
-          contrast(${contrast.value}${contrast.unit})
-          saturate(${saturate.value}${saturate.unit})
-          sepia(${sepia.value}${sepia.unit})
-          grayscale(${grayscale.value}${grayscale.unit})
-          invert(${invert.value}${invert.unit})
-          hue-rotate(${hueRotate.value}${hueRotate.unit})
-          blur(${blur.value}${blur.unit})
-        `
-      }} />
+      <div className='container'>
+        <div className='image-container'>
+          <img
+              src={myImage}
+              alt="old rusty fishing boat slope along shore lake"
+              style={{
+              filter: `
+                brightness(${brightness.value}${brightness.unit})
+                contrast(${contrast.value}${contrast.unit})
+                saturate(${saturate.value}${saturate.unit})
+                sepia(${sepia.value}${sepia.unit})
+                grayscale(${grayscale.value}${grayscale.unit})
+                invert(${invert.value}${invert.unit})
+                hue-rotate(${hueRotate.value}${hueRotate.unit})
+                blur(${blur.value}${blur.unit})
+              `}}
+          />
+        </div>
 
-      <input type="range" name={brightness.name} min={brightness.range.min} max={brightness.range.max} value={brightness.value} onChange={(e) => setBrightness({...brightness, value: e.target.value})} />
-        <label htmlFor={brightness.name}>{brightness.name}</label>
+        <div className='mode'>
+          <label htmlFor={brightness.name}>{brightness.name}</label>
+          <input type="range" name={brightness.name} min={brightness.range.min} max={brightness.range.max} value={brightness.value} onChange={(e) => setBrightness({...brightness, value: e.target.value})} />
+
+          <label htmlFor={contrast.name}>{contrast.name}</label>
+          <input type="range" name={contrast.name} min={contrast.range.min} max={contrast.range.max} value={contrast.value} onChange={(e) => setContrast({...contrast, value: e.target.value})} />
+
+          <label htmlFor={saturate.name}>{saturate.name}</label>
+          <input type="range" name={saturate.name} min={saturate.range.min} max={saturate.range.max} value={saturate.value} onChange={(e) => setSaturate({...saturate, value: e.target.value})} />
+
+          <label htmlFor={sepia.name}>{sepia.name}</label>
+          <input type="range" name={sepia.name} min={sepia.range.min} max={sepia.range.max} value={sepia.value} onChange={(e) => setSepia({...sepia, value: e.target.value})} />
+
+          <label htmlFor={grayscale.name}>{grayscale.name}</label>
+          <input type="range" name={grayscale.name} min={grayscale.range.min} max={grayscale.range.max} value={grayscale.value} onChange={(e) => setGrayscale({...grayscale, value: e.target.value})} />
+
+          <label htmlFor={invert.name}>{invert.name}</label>
+          <input type="range" name={invert.name} min={invert.range.min} max={invert.range.max} value={invert.value} onChange={(e) => setInvert({...invert, value: e.target.value})} />
+
+          <label htmlFor={hueRotate.name}>{hueRotate.name}</label>
+          <input type="range" name={hueRotate.name} min={hueRotate.range.min} max={hueRotate.range.max} value={hueRotate.value} onChange={(e) => setHueRotate({...hueRotate, value: e.target.value})} />
+
+          <label htmlFor={blur.name}>{blur.name}</label>
+          <input type="range" name={blur.name} min={blur.range.min} max={blur.range.max} value={blur.value} onChange={(e) => setBlur({...blur, value: e.target.value})} />
+        </div>
+      </div>
     </div>
   )
 }
